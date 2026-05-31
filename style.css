@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: #ffe6ea; /* Soft pastel pink */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+#intro-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#sorry-text {
+    color: #d6336c;
+    font-size: 3.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Button Styling */
+button {
+    background-color: #ff87a3;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 135, 163, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+button.show {
+    animation: popUpButton 0.8s forwards;
+}
+
+button:hover {
+    background-color: #f06585;
+    transform: scale(1.05) translateY(0);
+}
+
+/* Bouquet Screen */
+#flower-screen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe6ea;
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Making the bouquet take up the screen */
+#bouquet {
+    font-size: 22rem; 
+    transform: scale(0);
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+}
+
+#bouquet.bloom {
+    transform: scale(1);
+    animation: sway 3s ease-in-out infinite alternate 1s; 
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popUpButton {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sway {
+    from { transform: rotate(-5deg) scale(1); }
+    to { transform: rotate(5deg) scale(1); }
+}
