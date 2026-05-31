@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const introScreen = document.getElementById("intro-screen");
     const flowerScreen = document.getElementById("flower-screen");
     const bouquet = document.getElementById("bouquet");
+    const pleaText = document.getElementById("plea-text"); // Grab the new text
 
     // Make the button pop up 2 seconds after the page loads
     setTimeout(() => {
@@ -19,6 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // Trigger the massive bouquet pop-up animation
         setTimeout(() => {
             bouquet.classList.add("bloom");
+            
+            // Fade in the "Please don't sungit" text right after the bouquet
+            setTimeout(() => {
+                pleaText.classList.remove("hidden");
+                pleaText.classList.add("show-text");
+            }, 800); // Waits a fraction of a second so the bouquet appears first
+
         }, 50); 
     });
 });
